@@ -1,0 +1,15 @@
+Package: MATH4753F25wayne
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Authors@R: person(
+    "Wayne", "Stewart",
+    role = c("aut", "cre", "cph", "fnd"),
+    email = "wayne.s.stewart@ou.edu",
+    comment = "Stats Lecturer, Program Director of Master of Applied Statistics"
+  )
+Description: More about what it does (maybe more than one line).
+    Continuation lines should be indented.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
