@@ -1,6 +1,6 @@
 Package: MATH4753F25wayne
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Lab code 2025
 Version: 0.1.0
 Authors@R: person(
     "Wayne", "Stewart",
@@ -8,8 +8,7 @@ Authors@R: person(
     email = "wayne.s.stewart@ou.edu",
     comment = "Stats Lecturer, Program Director of Master of Applied Statistics"
   )
-Description: More about what it does (maybe more than one line).
-    Continuation lines should be indented.
+Description: Lab code for 2025.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
