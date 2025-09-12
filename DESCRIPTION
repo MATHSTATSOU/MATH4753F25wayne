@@ -12,3 +12,5 @@ Description: Lab code for 2025.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/MATHSTATSOU/MATH4753F25wayne
+BugReports: https://github.com/MATHSTATSOU/MATH4753F25wayne/issues
