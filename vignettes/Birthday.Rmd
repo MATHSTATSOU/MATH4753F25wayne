@@ -1,0 +1,91 @@
+---
+title: "Birthday"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Birthday}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(MATH4753F25wayne)
+```
+
+# The Mathematical Derivation of the Birthday Probability
+
+To solve this problem we will define two events:
+
+$$\begin{eqnarray}
+A&:& \{ \tt{2 \;or\; more\; people \; have \; the\; same\; birthday}\}\\
+A^c&:& \{ \tt{All\; people \; have \; different \; birthdays}\}
+\end{eqnarray}$$
+
+Notice that
+
+$$P(A) = 1 - P(A^c)$$
+
+We will work on $P(A^c)$ first.
+
+The number of ways we can permute different birthdays in a sample of size "n" is:
+
+$$365(365-1)(365-2)\ldots (365 - n + 1)$$ 
+
+by the multiplicative rule (without replacement).
+
+
+The number of ways we can form "n" birthdays in general where birthdays can repeat is:
+
+$$365 * 365 * 365 *\ldots *365 = 365^n$$
+
+by the multiplicative rule (with replacement).
+
+Therefore, 
+
+$$P(A^c) = \frac{365(365 -1)(365-2)\ldots (365-n+1)}{365^n}= \frac{P^{365}_n}{365^n}$$
+
+
+
+
+
+# The formulation using lchoose() and lfactorial()
+
+
+From chapter 4 (see slides):
+
+$$P^{365}_n = n! C^{365}_n$$
+
+This is because the number of permutations of n from 365 elements is equal to the number of combinations times the number of ways of ordering the n elements. (AGAIN BY THE MULTIPLICATIVE COUNTING RULE)
+
+Therefore in R:
+
+$$P^{365}_n = \tt{factorial(n) * choose(365,n)}$$
+
+Or with logs ($log_e$)
+
+$$log(P^{365}_n) =\tt{lfactorial(n) + lchoose(365,n)}$$
+
+Now we will work on $log(P(A^c))$ to control overflow problems.
+
+$$\begin{eqnarray}log(P(A^c)) &=& log(P^{365}_n) - log(365^n)\\
+&=& \tt{lfactorial(n) + lchoose(365,n) - n*log(365)}\\
+P(A) &=& 1 - exp(\tt{lfactorial(n) + lchoose(365,n) - n*log(365)})
+\end{eqnarray}$$
+
+# The function body
+
+```{r}
+body(birthday)
+```
+# The calling of the function
+
+```{r}
+birthday(x = 20:25)
+```
+
