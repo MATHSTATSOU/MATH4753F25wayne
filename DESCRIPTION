@@ -17,5 +17,7 @@ BugReports: https://github.com/MATHSTATSOU/MATH4753F25wayne/issues
 RoxygenNote: 7.3.3
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat (>= 3.0.0)
 VignetteBuilder: knitr
+Config/testthat/edition: 3
